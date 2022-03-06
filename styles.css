@@ -3,21 +3,37 @@
 /* grey hsl(0, 0%, 30%) */
 
 body {
-    background-color: #1A202C ;
-    color: white;
+    --primary-color:#F15A29;
+    --secondary-color:#1A202C;
+    --text-color: white;
+    --background-color: hsl(0, 0%, 30%);
+
+}
+
+.light body {
+    --primary-color:#F15A29;
+    --secondary-color:white;
+    --text-color: white;;
+    --background-color: hsl(0, 0%, 30%);
+
+}
+
+body {
+    background-color: var(--secondary-color) ;
+    color: var(--text-color);
     font-family: Arial, Helvetica, sans-serif;
 }
 
 header > h1 {
-    background-color: #F15A29;
+    background-color: var(--primary-color);
     padding: 0.5em;
 }
 
 article {
-    background-color: hsl(0, 0%, 30%);
+    background-color: var(--background-color);
 }
 article > h3 {
-    background-color: #F15A29;
+    background-color: var(--primary-color);
 }
 
 article > * {
@@ -25,12 +41,12 @@ article > * {
 }
 
 aside{
-    background-color: hsl(0, 0%, 30%);
+    background-color:var(--background-color);
     padding: 0.5em;
 }
 
 a {
-    background-color: #F15A29;
+    background-color: var(--primary-color);
     padding: 0.5em;
     color: white;
     display: block;
@@ -39,7 +55,7 @@ a {
 body * {
     margin: 0;
 }
-body * + * {
+main * + * {
     margin-top: 1em;
 }
 
@@ -59,4 +75,41 @@ aside {
 
 * {
     box-sizing: inherit;
+}
+
+.nav {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    margin: 1em 0;
+}
+
+.nav > li {
+    flex-grow: 1;
+}
+.nav > li + li {
+    margin-left: 1em;
+}
+a{
+    cursor: pointer;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px,1fr));
+    grid-auto-rows: 1fr;
+    gap: 1em;
+    margin-bottom: 1em;
+}
+
+.grid > div {
+    background-color:  var(--background-color);
+}
+
+.grid > div > * {
+    padding: .5em;
+}
+
+.grid > div > h3 {
+    background-color: var(--primary-color);
 }
